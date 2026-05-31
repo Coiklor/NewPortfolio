@@ -446,14 +446,14 @@ html {
 }
 
 .project-item.project1{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/portada_Teresuelvo.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project2{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -467,7 +467,7 @@ html {
 }
 
 .project-item.project4{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/smartsheet/Screenshot_1.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/smartsheet/Mockup_2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -593,6 +593,14 @@ html {
     line-height: 25px;
     color: #fff;
     margin-bottom: 2px;
+}
+/* Video Format */
+
+.video_format video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Opcional: para darle bordes redondeados y un look más moderno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Opcional: un sombreado sutil */
 }
 
 /* Responsive */
