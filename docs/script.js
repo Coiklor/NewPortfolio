@@ -167,7 +167,7 @@ let off=(id)=>{
     let overlay = document.getElementById(id);
     overlay.style.display = "none";
 }
-/* For te resuelvo, debo agregar un modal global */
+/* For te resuelvo, modal global */
 function openImageModal(imageSrc) {
     const modal = document.getElementById('image-modal');
     const enlargedImage = document.getElementById('enlarged-image');

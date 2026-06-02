@@ -16,7 +16,7 @@ html {
     background-size: cover;
     background-position: center center;
     padding-top: 10px;
-    min-height: 100vh;
+    height: 100vh;
     overflow-y: hidden;
     text-align: justify;
 }
@@ -478,17 +478,19 @@ html {
 #overlay, #overlay1, #overlay2, #overlay3{
     position: fixed;
     display: none;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: rgba(0,0,0, .9000);
     z-index: 103;
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     pointer-events: auto;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .image-modal{
@@ -521,16 +523,19 @@ html {
 }
 
 .close-button:hover {
-    animation-delay: 2s;
   color: #fff;
-  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .over{
+    width: 100%;
     max-width: auto;
-    margin: auto;
-    padding: 50px 15px;
+    margin: 0 auto;
+    padding: 60px 25px;
     display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
 }
 
 .hereistheflex{
@@ -541,16 +546,23 @@ html {
 }
 
 .over .content-picture{
-    max-width: 350px;
-    margin-right: 80px;
+    max-width: 450px;
+    min-width: 300px;
+    margin-right: 0;
+}
+
+.over .content-picture iframe{
+    margin-left: 10px;
+    
 }
 
 .over .content-picture img{
     padding: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 .overy{
+    flex: 2;
     margin: 0;
     text-align: justify;
     color: #fff
@@ -558,11 +570,12 @@ html {
 
 .span_link{
     color: #93ffa1;
+    text-decoration: none;
 }
 
 .span_link:hover{
     color: #034420;
-    transition: 2ms;
+    transition: color 0.2s ease;
 }
 
 .overy .title-section{
@@ -570,6 +583,7 @@ html {
     text-transform: uppercase;
     color: #93ffa1;
 }
+
 .overy h2{
     font-size: 34px;
     font-weight: bold;
@@ -577,9 +591,11 @@ html {
     letter-spacing: 2px;
     color: #fff
 }
+
 .overy span{
     color: #93ffa1;
 }
+
 .overy h3{
     font-size: 18px;
     font-weight: 500;
@@ -588,17 +604,19 @@ html {
     letter-spacing: 1px;
     color: #fff
 }
+
 .overy p{
     font-size: 14px;
     line-height: 25px;
     color: #fff;
     margin-bottom: 2px;
 }
+
 /* Video Format */
 
 .video_format video {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px; /* Opcional: para darle bordes redondeados y un look más moderno */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Opcional: un sombreado sutil */
 }
@@ -679,8 +697,15 @@ html {
     }
 }
 
+@media (max-width: 992px) {
+    .over {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* Ajuste para Laptops (Pantallas con poca altura) */
-@media screen and (max-height: 750px) and (min-width: 769px) {
+@media screen and (max-height: 700px) and (min-width: 770px) {
     
     /* Bajamos el robot para que no tape el texto dinámico */
     .stage {
@@ -704,5 +729,14 @@ html {
 
     .project-item {
         height: 180px !important;
+    }
+
+    .over{
+        flex-direction: column;
+        align-items: center;
+    }
+    .over .content-picture{
+        margin-bottom: 20px;
+        margin-right: 0 !important;
     }
 }
