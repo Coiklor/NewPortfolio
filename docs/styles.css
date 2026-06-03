@@ -446,21 +446,21 @@ html {
 }
 
 .project-item.project1{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.jpg);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project2{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project3{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/MockupsNCC_V2.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/MockupsNCC_V2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
