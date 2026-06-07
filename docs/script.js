@@ -207,3 +207,24 @@ function closeImageModal2() {
     const modal = document.getElementById('image-modal2');
     modal.style.display = 'none';
 }
+
+/* Lazy loading */
+document.addEventListener("DOMContentLoaded", () => {
+    const lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-bg"));
+
+    if ("IntersectionObserver" in window) {
+        const bgObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Agrega la clase que tiene la URL de la imagen
+                    entry.target.classList.add("lazy-background-loaded");
+                    bgObserver.unobserve(entry.target); // Deja de vigilarlo
+                }
+            });
+        });
+
+        lazyBackgrounds.forEach((bg) => {
+            bgObserver.observe(bg);
+        });
+    }
+});

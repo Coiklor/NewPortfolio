@@ -446,28 +446,54 @@ html {
 }
 
 .project-item.project1{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project2{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.webp);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project3{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/MockupsNCC_V2.webp);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .project-item.project4{
-    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/smartsheet/Mockup_2.png);
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Lazy loading para fondos de proyectos */
+.project-item.project1.lazy-background-loaded {
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project-item.project2.lazy-background-loaded {
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project-item.project3.lazy-background-loaded {
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/MockupsNCC_V2.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.project-item.project4.lazy-background-loaded {
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/smartsheet/Mockup_2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
