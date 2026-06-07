@@ -628,6 +628,11 @@ html {
     .home {
         overflow-y: auto;
         padding-top: 10px;
+        overflow-x: hidden;
+    }
+
+    .menuContainer {
+        padding: 10px;
     }
 
     /* Dynamic text */
