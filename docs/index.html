@@ -13,8 +13,8 @@
     <div class="particles-js" id="particles"></div>
 
     <section class="home">
-
-        <H1 data-message="Contratame /Give me an opportunity">WELCOME</H1>
+        <link rel="preload" fetchpriority="high" as="image" href="Images/Home_3.jpeg" type="image/jpeg">
+        <h1>WELCOME</h1>
 
         <!-- "Menu" -->
          <div class="menuContainer">
@@ -38,9 +38,9 @@
 
             <div class="over" id="overlay">
                 <div class="content-picture">
-                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="385" height="650"; src="https://embed.figma.com/proto/iPpZiYcCrAnEFDcqqujQKY/Plataforma?page-id=29%3A92&node-id=190-1119&p=f&viewport=-528%2C902%2C0.06&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=190%3A1123&embed-host=share" allowfullscreen></iframe>
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="385" height="650"; src="https://embed.figma.com/proto/iPpZiYcCrAnEFDcqqujQKY/Plataforma?page-id=29%3A92&node-id=190-1119&p=f&viewport=-528%2C902%2C0.06&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=190%3A1123&embed-host=share" allowfullscreen loading="lazy"></iframe>
                     
-                    <img src="Images/Teresuelvo/AQDI.webp" 
+                    <img src="Images/Teresuelvo/AQDI.webp" loading="lazy" 
                         alt="Teresuelvo App"
                         class="thumbnail"
                         onclick="openImageModal('Images/Teresuelvo/AQDI.webp')">
@@ -49,7 +49,7 @@
                         <img id="enlarged-image" src="" alt="Imagen ampliada">
                     </div>
 
-                    <img src="Images/Teresuelvo/Journey_Map1.webp" 
+                    <img src="Images/Teresuelvo/Journey_Map1.webp" loading="lazy"
                         alt="Teresuelvo App"
                         class="thumbnail"
                         onclick="openImageModal('Images/Teresuelvo/Journey_Map1.webp')">
@@ -91,11 +91,12 @@
 
             <div class="over" id="overlay1">
                 <div class="content-picture">
-                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="385" height="650" src="https://embed.figma.com/proto/rVssjN0HnYcsC3VvgZI6oF/Nescafe?page-id=12%3A2&node-id=220-4879&p=f&viewport=-2314%2C171%2C0.03&scaling=contain&content-scaling=fixed&starting-point-node-id=220%3A4877&embed-host=share" allowfullscreen></iframe>
+                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="385" height="650" src="https://embed.figma.com/proto/rVssjN0HnYcsC3VvgZI6oF/Nescafe?page-id=12%3A2&node-id=220-4879&p=f&viewport=-2314%2C171%2C0.03&scaling=contain&content-scaling=fixed&starting-point-node-id=220%3A4877&embed-host=share" allowfullscreen loading="lazy"></iframe>
 
                     <img src="Images/Nescafe/Journey_Map.webp" 
                         alt="Nescafé App"
                         class="thumbnail"
+                        loading="lazy"
                         onclick="openImageModal1('Images/Nescafe/Journey_Map.webp')">
                     
                     <div id="image-modal1" class="image-modal" onclick="closeImageModal()">
@@ -105,6 +106,7 @@
                     <img src="Images/Nescafe/AQDI.webp" 
                         alt="Nescafé App"
                         class="thumbnail"
+                        loading="lazy"
                         onclick="openImageModal1('Images/Nescafe/AQDI.webp')">
                     
                     <div id="image-modal1" class="image-modal" onclick="closeImageModal1()">
@@ -148,11 +150,12 @@
             <div class="over" id="overlay2">
                 <div class="content-picture">
 
-                    <iframe src='https://my.spline.design/nescafecandys-nCSCrX2l7KbhhWXMtBEq254q/' frameborder='0' width='385px' height='500px'></iframe>
+                    <iframe src='https://my.spline.design/nescafecandys-nCSCrX2l7KbhhWXMtBEq254q/' frameborder='0' width='385px' height='500px' loading="lazy"></iframe>
 
                     <img src="Images/Nescafe/MockupsNCC_V1.webp" 
                         alt="Nescafé App"
                         class="thumbnail"
+                        loading="lazy"
                         onclick="openImageModal2('Images/Nescafe/MockupsNCC_V1.webp')">
                     
                     <div id="image-modal2" class="image-modal" onclick="closeImageModal2()">
@@ -163,6 +166,7 @@
                     <img src="Images/Nescafe/MockupsNOC_V1.webp" 
                         alt="Nescafé App"
                         class="thumbnail"
+                        loading="lazy"
                         onclick="openImageModal2('Images/Nescafe/MockupsNOC_V2.webp')">
                     
                     <div id="image-modal2" class="image-modal" onclick="closeImageModal2()">
@@ -204,8 +208,8 @@
 
             <div class="over" id="overlay3">
                 <div class="content-picture">
-                    <img src="Images/smartsheet/Mockup_2.webp" alt="">
-                    <img src="Images/smartsheet/Mockup_1.webp" alt="">
+                    <img src="Images/smartsheet/Mockup_2.webp" alt="" loading="lazy">
+                    <img src="Images/smartsheet/Mockup_1.webp" alt="" loading="lazy">
                 </div>
                 
                 <div class="overy">
@@ -285,6 +289,22 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        // Retrasa la carga de partículas 2.5 segundos para que la web cargue instantáneo
+        setTimeout(() => {
+        const script = document.createElement('script');
+        script.src = "ruta/de/tu/particles.min.js"; // Pon aquí la ruta de tu archivo particles.js
+        script.onload = () => {
+            // Aquí adentro pones el código con el que inicias tus partículas, ej:
+            particlesJS.load('particles-js', 'assets/particles.json', function() {
+            console.log('Partículas cargadas en segundo plano.');
+            });
+        };
+        document.body.appendChild(script);
+        }, 3500); 
+    });
+    </script>
     
 </body>
 </html>
