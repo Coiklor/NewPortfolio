@@ -32,6 +32,7 @@
 
         <!-- Projects -->
         <div class="projects">
+
             <!-- TE RESUELVO APP -->
             <div class="project-item project1 lazy-bg" data-project-name="TE_RESUELVO" data-message="Una solucion para los precarios sistemas comunales. / A big solution for the worst communities in Venezuela" onclick="on('overlay')"><a href="#overlay"></a> TERESUELVO APP</div>
 
@@ -99,7 +100,7 @@
                         loading="lazy"
                         onclick="openImageModal1('Images/Nescafe/Journey_Map.webp')">
                     
-                    <div id="image-modal1" class="image-modal" onclick="closeImageModal()">
+                    <div id="image-modal1" class="image-modal" onclick="closeImageModal1()">
                         <img id="enlarged-image1" src="" alt="Imagen ampliada">
                     </div>
 
@@ -167,7 +168,7 @@
                         alt="Nescafé App"
                         class="thumbnail"
                         loading="lazy"
-                        onclick="openImageModal2('Images/Nescafe/MockupsNOC_V2.webp')">
+                        onclick="openImageModal2('Images/Nescafe/MockupsNOC_V1.webp')">
                     
                     <div id="image-modal2" class="image-modal" onclick="closeImageModal2()">
                         <img id="enlarged-image2" src="" alt="Imagen ampliada">
@@ -236,7 +237,65 @@
                 </div>
             </div>
 
-            <!-- <div class="project-item project5" data-project-name="RAKSUS" data-message="Como conocedor de ciberseguridad, un nuevo estandar para proteger la industria, As a cybersecurity knowledge, a big solution for security problems">Proyecto 5</div> -->
+            <!-- RAKSUS SECURITY SYSTEM -->
+            <div class="project-item project5 lazy-bg" data-project-name="RAKSUS" data-message="Sistema de control de acceso / IAM Security System" onclick="on('overlay4')"><a href="#overlay4"></a>RAKSUS</div>
+
+            <div class="over" id="overlay4">
+                <div class="content-picture">
+                    <h2 style="margin-left:15px;">RAKSUS DOCUMENTS</h2>
+
+                    <img src="Images/Raksus/PortadaJourney.png" loading="lazy"
+                    alt="Raksus - Journey Map" class="thumbnail"
+                    onclick="openCarouselModal(0, 'journey')">
+
+                    <img src="Images/Raksus/Research/Portada1.png" loading="lazy"
+                    alt="Raksus - Research" class="thumbnail"
+                    onclick="openCarouselModal(0, 'research')">
+
+                    <img src="Images/Raksus/Survey/Portada Survey1.png" loading="lazy"
+                    alt="Raksus - Survey Results" class="thumbnail"
+                    onclick="openCarouselModal(0, 'survey')">
+
+                    <!-- Carousel Modal -->
+                    <div id="carousel-modal" class="carousel-modal" onclick="closeCarouselModal(event)">
+                        <button class="carousel-nav prev" onclick="navigateCarousel(-1, event)" aria-label="Anterior">&#10094;</button>
+                        
+                        <div class="carousel-content">
+                            <img id="carousel-enlarged-image" src="" alt="Imagen ampliada">
+                            <span id="carousel-counter" class="carousel-counter"></span>
+                        </div>
+
+                        <button class="carousel-nav next" onclick="navigateCarousel(1, event)" aria-label="Siguiente">&#10095;</button>
+                        <button class="carousel-close" onclick="closeCarouselModal(event)">&times;</button>
+                    </div>
+                </div>
+                
+                <div class="overy">
+                    <div class="hereistheflex">
+                        <p class="title-section">RAKSUS</p>
+                        <span class="close-button" onclick="off('overlay4')">&times;</span>
+                    </div>
+                    <h2>RAKSUS <span>PROJECT</span></h2>
+                    <h3>IAM Security System / Sistema de control de seguridad.</h3>
+
+                    <div class="video_format">
+                        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/QjVJC1N8D7q5En7wTgbXJG/raksus?node-id=5363-355&p=f&viewport=6135%2C3379%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5363%3A354&page-id=5312%3A2&embed-host=share" allowfullscreen></iframe>
+                    </div>
+                    <!-- Video Raksus -->
+                    <!-- <div class="video_format">
+                        <video controls poster="Images/Raksus/Video_Raksus/Poster_Raksus.webp" width="auto" preload="metadata">
+                        <source src="Images/Raksus/Video_Raksus/Raksus_Eng.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <h3><span>Esta es</span> una presentacion resumida del proyecto. <strong>Click play para ver</strong></h3>
+                    <div class="video_format">
+                        <video controls poster="Images/Raksus/Video_Raksus/Poster_Raksus.webp" width="auto" preload="metadata">
+                        <source src="Images/Raksus/Video_Raksus/Raksus_Esp.mp4" type="video/mp4">
+                        </video>
+                    </div> -->
+                </div>
+            </div>
 
         </div>
 

@@ -473,6 +473,13 @@ html {
     background-repeat: no-repeat;
 }
 
+.project-item.project5{
+    background: linear-gradient( rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* Lazy loading para fondos de proyectos */
 .project-item.project1.lazy-background-loaded {
     background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
@@ -498,10 +505,16 @@ html {
     background-position: center;
     background-repeat: no-repeat;
 }
+.project-item.project5.lazy-background-loaded {
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Raksus/R_portada.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 /* Overlays*/
 
-#overlay, #overlay1, #overlay2, #overlay3{
+#overlay, #overlay1, #overlay2, #overlay3, #overlay4{
     position: fixed;
     display: none;
     height: 100vh;
@@ -647,9 +660,89 @@ html {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Opcional: un sombreado sutil */
 }
 
+/* Carousel Modal */
+.carousel-modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-modal.active {
+  display: flex;
+}
+
+.carousel-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#carousel-enlarged-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain; 
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Botones de navegación */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: none;
+  font-size: 2.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  user-select: none;
+  z-index: 1010;
+}
+
+.carousel-nav:hover {
+  background: rgba(128, 243, 163, 0.3);
+}
+
+.carousel-nav.prev { left: 30px; }
+.carousel-nav.next { right: 30px; }
+
+/* Botón cerrar */
+.carousel-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: #93ffa1;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1010;
+}
+
+/* Contador */
+.carousel-counter {
+  color: #93ffa1;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
 /* Responsive */
 
-/* Para Tablets y Celulares */
 @media (max-width: 768px) {
     .home {
         overflow-y: auto;
@@ -728,15 +821,14 @@ html {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 1180px) {
     .over {
         flex-direction: column;
         align-items: center;
     }
 }
 
-/* Ajuste para Laptops (Pantallas con poca altura) */
-@media screen and (max-height: 700px) and (min-width: 770px) {
+@media screen and (max-height: 700px) and (min-width: 770px) and (max-width: 1180px) and (min-width: 882px) {
     
     /* Bajamos el robot para que no tape el texto dinámico */
     .stage {

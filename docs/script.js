@@ -167,6 +167,7 @@ let off=(id)=>{
     let overlay = document.getElementById(id);
     overlay.style.display = "none";
 }
+
 /* For te resuelvo, modal global */
 function openImageModal(imageSrc) {
     const modal = document.getElementById('image-modal');
@@ -180,6 +181,7 @@ function closeImageModal() {
     const modal = document.getElementById('image-modal');
     modal.style.display = 'none';
 }
+
  /* Provicional for Nescafe */
 function openImageModal1(imageSrc) {
     const modal = document.getElementById('image-modal1');
@@ -208,6 +210,19 @@ function closeImageModal2() {
     modal.style.display = 'none';
 }
 
+function openImageModal3(imageSrc) {
+    const modal = document.getElementById('image-modal3');
+    const enlargedImage = document.getElementById('enlarged-image3');
+
+    enlargedImage.src = imageSrc;
+    modal.style.display = 'flex';
+}
+
+function closeImageModal3() {
+    const modal = document.getElementById('image-modal3');
+    modal.style.display = 'none';
+}
+
 /* Lazy loading */
 document.addEventListener("DOMContentLoaded", () => {
     const lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-bg"));
@@ -228,3 +243,124 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+/* Carousel */
+// --- CONFIGURACIÓN DE DATOS ---
+// Define aquí qué imágenes van dentro de CADA carrusel independiente.
+// Las claves ('journey', 'research', 'survey') deben coincidir con las llamadas en el HTML.
+const raksusGalleries = {
+  'journey': [
+    "Images/Raksus/Journey Map.webp",
+    "Images/Raksus/Journey Map2.webp",
+    "Images/Raksus/Journey Map3.webp",
+    "Images/Raksus/Journey Map4.webp"  
+  ],
+  'research': [
+    "Images/Raksus/Research/Screenshot_2.webp",
+    "Images/Raksus/Research/Screenshot_3.webp",
+    "Images/Raksus/Research/Screenshot_4.webp",
+    "Images/Raksus/Research/Screenshot_5.webp",
+    "Images/Raksus/Research/Screenshot_6.webp",
+    "Images/Raksus/Research/Screenshot_7.webp",
+    "Images/Raksus/Research/Screenshot_8.webp",
+    "Images/Raksus/Research/Screenshot_9.webp",
+    "Images/Raksus/Research/Screenshot_10.webp",
+    "Images/Raksus/Research/Screenshot_11.webp",
+    "Images/Raksus/Research/Screenshot_12.webp"
+  ],
+  'survey': [
+    "Images/Raksus/Survey/Portada Survey.png", // Foto 1 (Portada)
+    "Images/Raksus/Survey/Grafico1.png",      // Ejemplo
+    "Images/Raksus/Survey/Comentarios.png"   // Ejemplo
+  ]
+};
+
+// --- VARIABLES DE ESTADO ---
+let carouselCurrentIndex = 0;
+let currentGalleryKey = ''; // Guarda qué galería estamos viendo actualmente ('journey', etc.)
+
+// --- FUNCIONES ---
+
+// Abre el modal cargando una galería específica
+function openCarouselModal(index, galleryKey) {
+  // Verificamos que la galería exista para evitar errores
+  if (!raksusGalleries[galleryKey]) {
+    console.error(`La galería '${galleryKey}' no está definida en JavaScript.`);
+    return;
+  }
+
+  // Seteamos el estado actual
+  currentGalleryKey = galleryKey;
+  carouselCurrentIndex = index;
+  
+  // Actualizamos la imagen visible
+  updateCarouselImage();
+  
+  // Mostramos el modal
+  const modal = document.getElementById('carousel-modal');
+  if (modal) {
+    modal.classList.add('active');
+    // Escuchamos el teclado
+    document.addEventListener('keydown', handleCarouselKeyPress);
+  }
+}
+
+// Cierra el modal y limpia el estado
+function closeCarouselModal(event) {
+  // Cierra si se presiona ESC (no hay event) o si se hace clic fuera o en el botón cerrar
+  const isClickOutside = event && event.target.classList.contains('carousel-modal');
+  const isClickCloseBtn = event && event.target.classList.contains('carousel-close');
+
+  if (!event || isClickOutside || isClickCloseBtn) {
+    const modal = document.getElementById('carousel-modal');
+    if (modal) {
+      modal.classList.remove('active');
+      // Dejamos de escuchar el teclado
+      document.removeEventListener('keydown', handleCarouselKeyPress);
+      // Limpiamos la referencia a la galería actual para seguridad
+      currentGalleryKey = '';
+    }
+  }
+}
+
+// Navega dentro de la galería actual
+function navigateCarousel(step, event) {
+  if (event) event.stopPropagation(); // No cerrar el modal al clicar las flechas
+  
+  if (!currentGalleryKey) return; // Seguridad
+
+  const images = raksusGalleries[currentGalleryKey];
+  carouselCurrentIndex += step;
+  
+  // Lógica de bucle infinito (va de la última a la primera y viceversa)
+  if (carouselCurrentIndex < 0) {
+    carouselCurrentIndex = images.length - 1;
+  } else if (carouselCurrentIndex >= images.length) {
+    carouselCurrentIndex = 0;
+  }
+  
+  updateCarouselImage();
+}
+
+// Dibuja la imagen y el contador actuales basándose en el estado
+function updateCarouselImage() {
+  const enlargedImg = document.getElementById('carousel-enlarged-image');
+  const counter = document.getElementById('carousel-counter');
+  
+  if (enlargedImg && counter && currentGalleryKey) {
+    const images = raksusGalleries[currentGalleryKey];
+    
+    // Cambiamos el src de la imagen grande
+    enlargedImg.src = images[carouselCurrentIndex];
+    
+    // Actualizamos el contador (ej: "1 / 3")
+    counter.textContent = `${carouselCurrentIndex + 1} / ${images.length}`;
+  }
+}
+
+// Manejo de flechas de teclado y ESC
+function handleCarouselKeyPress(e) {
+  if (e.key === 'ArrowLeft') navigateCarousel(-1);
+  if (e.key === 'ArrowRight') navigateCarousel(1);
+  if (e.key === 'Escape') closeCarouselModal();
+}
