@@ -269,9 +269,28 @@ const raksusGalleries = {
     "Images/Raksus/Research/Screenshot_12.webp"
   ],
   'survey': [
-    "Images/Raksus/Survey/Portada Survey.png", // Foto 1 (Portada)
-    "Images/Raksus/Survey/Grafico1.png",      // Ejemplo
-    "Images/Raksus/Survey/Comentarios.png"   // Ejemplo
+    "Images/Raksus/Survey/Portada Survey.webp", // Foto 1 (Portada)
+    "Images/Raksus/Survey/Portada Survey_ESP.webp",
+    "Images/Raksus/Survey/Question 1.webp",
+    "Images/Raksus/Survey/Question 2.webp",
+    "Images/Raksus/Survey/Question 3.webp",
+    "Images/Raksus/Survey/Question 4.webp",
+    "Images/Raksus/Survey/Question 5.webp",
+    "Images/Raksus/Survey/Question 6.webp",
+    "Images/Raksus/Survey/Question 7.webp",
+    "Images/Raksus/Survey/Question 8.webp",
+    "Images/Raksus/Survey/Question 9.webp",
+    "Images/Raksus/Survey/Question 10.webp",
+    "Images/Raksus/Survey/Resultados.webp",
+    "Images/Raksus/Survey/Resultados test 1.webp",
+    "Images/Raksus/Survey/Resultados test 2.webp",
+    "Images/Raksus/Survey/Resultados test 3.webp",
+    "Images/Raksus/Survey/Resultados test 4.webp",
+  ],
+  'planos': [
+    "Images/Raksus/Planos/Hardware Raksus.webp",
+    "Images/Raksus/Planos/Hardware created.webp",
+    "Images/Raksus/Planos/PortadaPlanos2.webp",
   ]
 };
 
