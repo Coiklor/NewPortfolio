@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* Dynamic text */
 const textElement = document.querySelector(".dynamic-text");
-const phrases = ["UX/UI_DESIGNER", "UX_SECURITY", "SOURCING_SPECIALIST"];
+const phrases = ["UX/UI_DESIGNER", "UX_SECURITY", "CREATIVE", "SELF_TOUGHT"];
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
