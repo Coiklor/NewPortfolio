@@ -168,60 +168,6 @@ let off=(id)=>{
     overlay.style.display = "none";
 }
 
-/* For te resuelvo, modal global */
-function openImageModal(imageSrc) {
-    const modal = document.getElementById('image-modal');
-    const enlargedImage = document.getElementById('enlarged-image');
-    
-    enlargedImage.src = imageSrc;
-    modal.style.display = 'flex';
-}
-
-function closeImageModal() {
-    const modal = document.getElementById('image-modal');
-    modal.style.display = 'none';
-}
-
- /* Provicional for Nescafe */
-function openImageModal1(imageSrc) {
-    const modal = document.getElementById('image-modal1');
-    const enlargedImage = document.getElementById('enlarged-image1');
-    
-    enlargedImage.src = imageSrc;
-    modal.style.display = 'flex';
-}
-
-function closeImageModal1() {
-    const modal = document.getElementById('image-modal1');
-    modal.style.display = 'none';
-}
-
-/* Provicional for Nescafe */
-function openImageModal2(imageSrc) {
-    const modal = document.getElementById('image-modal2');
-    const enlargedImage = document.getElementById('enlarged-image2');
-    
-    enlargedImage.src = imageSrc;
-    modal.style.display = 'flex';
-}
-
-function closeImageModal2() {
-    const modal = document.getElementById('image-modal2');
-    modal.style.display = 'none';
-}
-
-function openImageModal3(imageSrc) {
-    const modal = document.getElementById('image-modal3');
-    const enlargedImage = document.getElementById('enlarged-image3');
-
-    enlargedImage.src = imageSrc;
-    modal.style.display = 'flex';
-}
-
-function closeImageModal3() {
-    const modal = document.getElementById('image-modal3');
-    modal.style.display = 'none';
-}
 
 /* Lazy loading */
 document.addEventListener("DOMContentLoaded", () => {
@@ -291,7 +237,59 @@ const raksusGalleries = {
     "Images/Raksus/Planos/Hardware Raksus.webp",
     "Images/Raksus/Planos/Hardware created.webp",
     "Images/Raksus/Planos/PortadaPlanos2.webp",
-  ]
+  ],
+  'Nescafe_Journey_Map': [
+    "Images/Nescafe/JourneyMap/Usuario 1.webp",
+    "Images/Nescafe/JourneyMap/Usuario 2.webp",
+    "Images/Nescafe/JourneyMap/Usuario 3.webp",
+    "Images/Nescafe/JourneyMap/Journey_Map.webp"
+    ],
+    'Nescafe_Arquitecure': [
+    "Images/Nescafe/Arquitectura/Arquitectura_Conductor1.webp",
+    "Images/Nescafe/Arquitectura/Arquitectura_Conductor2.webp",
+    "Images/Nescafe/Arquitectura/Arquitectura_Conductor3.webp",
+    "Images/Nescafe/Arquitectura/Arquitectura_Usuario1.webp",
+    "Images/Nescafe/Arquitectura/Arquitectura_Usuario2.webp",
+    "Images/Nescafe/Arquitectura/Arquitectura_Usuario3.webp",
+    "Images/Nescafe/AQDI.webp"
+    ],
+    'Nescafe_Branding':[
+    "Images/Nescafe/Branding/NESCAFE Bag.webp",
+    "Images/Nescafe/Branding/NESCAFE Jacket.webp",
+    ],
+    'Nescafe_CandyMockups1':[
+    "Images/Nescafe/Nescafe_Candy/MockupsNCC_V1.webp",
+    "Images/Nescafe/Nescafe_Candy/MockupsNCC_V2.webp",
+    "Images/Nescafe/Nescafe_Candy/MockupsNOC_V1.webp",
+    "Images/Nescafe/Nescafe_Candy/MockupsNOC_V2.webp",
+    ],
+    'Nescafe_CandyMockups2':[
+    "Images/Nescafe/Nescafe_Candy/Cuadrados/M1.webp",
+    "Images/Nescafe/Nescafe_Candy/Cuadrados/M2.webp",
+    "Images/Nescafe/Nescafe_Candy/Cuadrados/M3.webp",
+    "Images/Nescafe/Nescafe_Candy/Redondos/M1.webp",
+    "Images/Nescafe/Nescafe_Candy/Redondos/M2.webp",
+    "Images/Nescafe/Nescafe_Candy/Redondos/M3.webp",
+    ],
+    'TERESUELVO_ARQ':[
+        "Images/Teresuelvo/Arquitectura/Usuario.webp",
+        "Images/Teresuelvo/Arquitectura/Lider de comunidad.webp",
+        "Images/Teresuelvo/Arquitectura/Alcaldia.webp",
+        "Images/Teresuelvo/Arquitectura/Diagrama1.webp",
+        "Images/Teresuelvo/Arquitectura/Diagrama2.webp",
+        "Images/Teresuelvo/Arquitectura/Diagrama3.webp",
+    ],
+    'TERESUELVO_JOURNEY':[
+        "Images/Teresuelvo/Journey/Journey_Map1.webp",
+        "Images/Teresuelvo/Journey/Journey_Map2.webp",
+        "Images/Teresuelvo/Journey/Journey_Map3.webp",
+    ],
+    'TERESUELVO_BRANDING':[
+        "Images/Teresuelvo/Mockups/Mockup1.webp",
+        "Images/Teresuelvo/Mockups/Mockup4.webp",
+        "Images/Teresuelvo/Mockups/Mockup2.webp",
+        "Images/Teresuelvo/Mockups/Branding3.webp",
+    ]
 };
 
 // --- VARIABLES DE ESTADO ---

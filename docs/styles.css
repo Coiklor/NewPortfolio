@@ -494,7 +494,7 @@ html {
     background-repeat: no-repeat;
 }
 .project-item.project3.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/MockupsNCC_V2.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/Nescafe_Candy/Portada1.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
