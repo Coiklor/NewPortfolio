@@ -51,6 +51,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/* Robot is sleeping (Inactividad) */
+document.addEventListener("DOMContentLoaded", () => {
+    const robotFace = document.getElementById("face_robot");
+    if (!robotFace) return;
+
+    let inactivityTimer;
+    const idleTimeLimit = 5000; // 
+
+    function startInactivityTimer() {
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => {
+            robotFace.classList.add("is-sleeping");
+            console.log("El robot se ha dormido por inactividad.");
+        }, idleTimeLimit);
+    }
+
+    function resetInactivity() {
+        if (robotFace.classList.contains("is-sleeping")) {
+            robotFace.classList.remove("is-sleeping");
+            console.log("El robot se ha despertado.");
+        }
+        startInactivityTimer();
+    }
+
+    // Usamos eventos más estables para no reiniciar el contador por cada microrregla del mouse:
+    window.addEventListener("click", resetInactivity);
+    
+    // Opcional: si quieres que el mouse mueva el contador, usamos un intervalo para que no sature
+    let mouseMovedRecently = false;
+    window.addEventListener("mousemove", () => {
+        if (!mouseMovedRecently) {
+            mouseMovedRecently = true;
+            resetInactivity();
+            setTimeout(() => { mouseMovedRecently = false; }, 1000); // Solo registra movimiento de mouse 1 vez por segundo
+        }
+    });
+
+    // Arrancamos el contador inicial
+    startInactivityTimer();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const robotFace = document.getElementById("face_robot");

@@ -251,6 +251,59 @@ html {
     animation: none !important;
 }
 
+/* ==========================================
+   ROBOT IS SLEEPING (Versión Animada)
+   ========================================== */
+
+/* --- Contenedor principal de la cara al dormir --- */
+#face_robot.is-sleeping {
+    filter: brightness(0.5); 
+    transform: rotateX(0deg) translateZ(100px) scale(0.95);
+    animation: robot-sleep-breathing 3s ease-in-out infinite;
+}
+
+/* --- Ojos cerrados (interrumpen el parpadeo y se aplanan) --- */
+#face_robot.is-sleeping .eyes {
+    height: 4px !important;              /* Se convierten en una línea fina (ojos cerrados) */
+    margin-top: 75px !important;         /* Ajuste de posición vertical */
+    border-radius: 2px !important;
+    background-color: #6ee7b7 !important;  /* Tono ligeramente más tenue */
+    box-shadow: 0 0 10px rgba(147, 255, 161, 0.4);
+    animation: none !important;          /* Detiene el parpadeo y bostezos */
+}
+
+/* --- Boca respirando / roncando despacio --- */
+#face_robot.is-sleeping .mouth {
+    height: 10px !important;
+    border-radius: 6px !important;
+    background-color: #6ee7b7 !important;
+    box-shadow: 0 0 10px rgba(147, 255, 161, 0.4);
+    animation: sleepMouthBreathing 3s ease-in-out infinite !important; /* Interrumpe el bostezo largo y pone respiración */
+}
+
+/* --- Animaciones de Círculo/Respiración --- */
+@keyframes robot-sleep-breathing {
+    0%, 100% {
+        transform: rotateX(0deg) translateZ(100px) scale(0.95) translateY(0px);
+    }
+    50% {
+        transform: rotateX(0deg) translateZ(100px) scale(0.95) translateY(4px); /* Pequeño movimiento hacia abajo al "exhalar" */
+    }
+}
+
+@keyframes sleepMouthBreathing {
+    0%, 100% {
+        width: 80px;
+        height: 8px;
+        opacity: 0.5;
+    }
+    50% {
+        width: 100px;
+        height: 14px;
+        opacity: 0.9; /* Se expande levemente al "respirar" */
+    }
+}
+
 /* Lef & right side */
 .facesideContainer{
     display: flex;
@@ -482,31 +535,31 @@ html {
 
 /* Lazy loading para fondos de proyectos */
 .project-item.project1.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(3, 85, 27, 0.637)), url(Images/Teresuelvo/Mockup_Teresuelvo.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .project-item.project2.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/NESCAFE_PORTADA1.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(3, 85, 27, 0.637)), url(Images/Nescafe/NESCAFE_PORTADA1.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .project-item.project3.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Nescafe/Nescafe_Candy/Portada1.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(3, 85, 27, 0.637)), url(Images/Nescafe/Nescafe_Candy/Portada1.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .project-item.project4.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/smartsheet/Mockup_2.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(3, 85, 27, 0.637)), url(Images/smartsheet/Mockup_2.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .project-item.project5.lazy-background-loaded {
-    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(10, 206, 69, 0.33)), url(Images/Raksus/R_portada.webp);
+    background: linear-gradient(rgba(0, 52, 83, 0.931), rgba(1, 61, 19, 0.63)), url(Images/Raksus/R_portada.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
