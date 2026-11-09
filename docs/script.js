@@ -199,13 +199,29 @@ particlesJS("particles", {
 
 /* Overlay */
 
-let on =(id) =>{
+let on = (id) => {
     let overlay = document.getElementById(id);
+    if (!overlay) return;
+    
     overlay.style.display = "flex";
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.3s ease-out";
+    
+    requestAnimationFrame(() => {
+        overlay.style.opacity = "1";
+    });
 }
-let off=(id)=>{
+
+let off = (id) => {
     let overlay = document.getElementById(id);
-    overlay.style.display = "none";
+    if (!overlay) return;
+    
+    overlay.style.transition = "opacity 0.25s ease-in";
+    overlay.style.opacity = "0";
+    
+    setTimeout(() => {
+        overlay.style.display = "none";
+    }, 250);
 }
 
 
@@ -338,58 +354,82 @@ let currentGalleryKey = ''; // Guarda qué galería estamos viendo actualmente (
 
 // --- FUNCIONES ---
 
-// Abre el modal cargando una galería específica
 function openCarouselModal(index, galleryKey) {
-  // Verificamos que la galería exista para evitar errores
   if (!raksusGalleries[galleryKey]) {
     console.error(`La galería '${galleryKey}' no está definida en JavaScript.`);
     return;
   }
-
-  // Seteamos el estado actual
+  
   currentGalleryKey = galleryKey;
   carouselCurrentIndex = index;
-  
-  // Actualizamos la imagen visible
   updateCarouselImage();
-  
-  // Mostramos el modal
+
   const modal = document.getElementById('carousel-modal');
   if (modal) {
-    modal.classList.add('active');
-    // Escuchamos el teclado
+    // 1. Preparamos el estado inicial invisible y desplazado hacia abajo
+    modal.style.display = "flex";
+    modal.style.opacity = "0";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+    modal.style.backdropFilter = "blur(5px)";
+    modal.style.transition = "opacity 0.35s ease-out";
+
+    // Buscamos el contenedor interno del carrusel para darle efecto de zoom/subida
+    let content = modal.querySelector('.carousel-content') || modal.firstElementChild;
+    if (content) {
+      content.style.transform = "translateY(30px) scale(0.95)";
+      content.style.transition = "transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
+
+    // 2. Activamos la animación en el siguiente frame
+    requestAnimationFrame(() => {
+      modal.style.opacity = "1";
+      if (content) {
+        content.style.transform = "translateY(0) scale(1)";
+      }
+    });
+
     document.addEventListener('keydown', handleCarouselKeyPress);
   }
 }
 
-// Cierra el modal y limpia el estado
 function closeCarouselModal(event) {
-  // Cierra si se presiona ESC (no hay event) o si se hace clic fuera o en el botón cerrar
   const isClickOutside = event && event.target.classList.contains('carousel-modal');
   const isClickCloseBtn = event && event.target.classList.contains('carousel-close');
 
   if (!event || isClickOutside || isClickCloseBtn) {
     const modal = document.getElementById('carousel-modal');
     if (modal) {
-      modal.classList.remove('active');
-      // Dejamos de escuchar el teclado
+      
+      modal.style.transition = "opacity 0.25s ease-in";
+      modal.style.opacity = "0";
+
+      let content = modal.querySelector('.carousel-content') || modal.firstElementChild;
+      if (content) {
+        content.style.transition = "transform 0.25s ease-in";
+        content.style.transform = "translateY(20px) scale(0.95)";
+      }
+
+     
+      setTimeout(() => {
+        modal.style.display = "none";
+        if (content) content.style.transform = "none";
+      }, 250);
+
       document.removeEventListener('keydown', handleCarouselKeyPress);
-      // Limpiamos la referencia a la galería actual para seguridad
       currentGalleryKey = '';
     }
   }
 }
 
-// Navega dentro de la galería actual
+
 function navigateCarousel(step, event) {
-  if (event) event.stopPropagation(); // No cerrar el modal al clicar las flechas
+  if (event) event.stopPropagation(); 
   
-  if (!currentGalleryKey) return; // Seguridad
+  if (!currentGalleryKey) return; 
 
   const images = raksusGalleries[currentGalleryKey];
   carouselCurrentIndex += step;
   
-  // Lógica de bucle infinito (va de la última a la primera y viceversa)
   if (carouselCurrentIndex < 0) {
     carouselCurrentIndex = images.length - 1;
   } else if (carouselCurrentIndex >= images.length) {
@@ -399,25 +439,49 @@ function navigateCarousel(step, event) {
   updateCarouselImage();
 }
 
-// Dibuja la imagen y el contador actuales basándose en el estado
+
 function updateCarouselImage() {
   const enlargedImg = document.getElementById('carousel-enlarged-image');
   const counter = document.getElementById('carousel-counter');
-  
+
   if (enlargedImg && counter && currentGalleryKey) {
     const images = raksusGalleries[currentGalleryKey];
+    enlargedImg.style.transition = "opacity 0.15s ease-in";
+    enlargedImg.style.opacity = "0";
+
     
-    // Cambiamos el src de la imagen grande
-    enlargedImg.src = images[carouselCurrentIndex];
-    
-    // Actualizamos el contador (ej: "1 / 3")
-    counter.textContent = `${carouselCurrentIndex + 1} / ${images.length}`;
+    setTimeout(() => {
+      enlargedImg.src = images[carouselCurrentIndex];
+      counter.textContent = `${carouselCurrentIndex + 1} / ${images.length}`;
+      enlargedImg.style.transition = "opacity 0.2s ease-out";
+      enlargedImg.style.opacity = "1";
+    }, 150);
   }
 }
 
-// Manejo de flechas de teclado y ESC
 function handleCarouselKeyPress(e) {
   if (e.key === 'ArrowLeft') navigateCarousel(-1);
   if (e.key === 'ArrowRight') navigateCarousel(1);
   if (e.key === 'Escape') closeCarouselModal();
+}
+
+/* Overlay for resume */
+function openResumeModal() {
+    const modal = document.getElementById('resume-modal');
+    if (!modal) return;
+    modal.style.display = "flex";
+    modal.style.opacity = "0";
+    modal.style.transition = "opacity 0.3s ease-out";
+    requestAnimationFrame(() => {
+        modal.style.opacity = "1";
+    });
+}
+function closeResumeModal(event) {
+    const modal = document.getElementById('resume-modal');
+    if (!modal) return;
+    modal.style.transition = "opacity 0.25s ease-in";
+    modal.style.opacity = "0";
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 300);
 }

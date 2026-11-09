@@ -22,10 +22,29 @@
                 <h2>ABE</h2>
             </div>
             <div class="menuRight">
+                
                         <a href="https://github.com/Coiklor" data-message="Github"><i class="fa-brands fa-github"></i></a>
                         <a href="https://www.behance.net/abrahammoreno5" data-message="Aquí podrás encontrar un proceso de investigación más detallado. Here is detailed version of every project only in spanish"><i class="fa-brands fa-behance"></i></a>
-                        <a href="https://drive.google.com/file/d/1g688gV71H2BlOIJx3VmtkyoHL3zA1reX/view" data-message="ENGLISH CV"><i class="fa-etch fa-solid fa-file"></i></a>
-                        <a href="https://drive.google.com/file/d/146HSbn--EFtE5zHbDIkE3tWhblU9An_Y/view" data-message="SPANISH CV"><i class="fa-etch fa-solid fa-file"></i></a>
+                        <a onclick="openResumeModal()" data-message='Resumes' id="resume_modal"><i class="fa-etch fa-solid fa-file"></i></a>
+
+                        <div id="resume-modal" class="resume-modal">
+                            <div class="resume-content">
+                                <div class="hereistheflex">
+                                    <h2 class="title-section">RESUMES</h2>
+                                    <span class="close-button" onclick="closeResumeModal(event)">&times;</span>
+                                </div>
+                                
+                                <h3>Click the links below to see my resumes:</h3><br>
+                                <div class="list">
+                                    <a href="https://drive.google.com/file/d/1g688gV71H2BlOIJx3VmtkyoHL3zA1reX/view" target="_blank" style="font-style: bolder;">English Resume</a>
+                                </div>
+                                <div class="list">
+                                    <a href="https://drive.google.com/file/d/146HSbn--EFtE5zHbDIkE3tWhblU9An_Y/view" target="_blank" style="font-style: bolder;">Spanish Resume</a>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <a href="https://drive.google.com/file/d/1bK-InRqviEXEw9yARxXnyofJ3QK71JRy/view" data-message="MY INTRODUCE YOURSELF VIDEO"><i class="fa-solid fa-file-video"></i></a>
             </div>
             </div>
          </div>
@@ -61,7 +80,7 @@
                         style="height: 230px;"
                         onclick="openCarouselModal(0, 'TERESUELVO_JOURNEY')">
 
-                    <img src="Images/Teresuelvo/Mockup_Teresuelvo.webp"
+                    <img src="Images/Teresuelvo/MockPortada.png"
                         alt="Teresuelvo App"
                         class="thumbnail"
                         loading="lazy"
