@@ -51,7 +51,7 @@ html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient( rgba(3, 40, 61, 0.726),rgba(2, 105, 83, 0.616), rgba(0, 20, 34, 0.904)), url(Images/Wallpaper/avila.gif);
+  background: linear-gradient( rgba(3, 40, 61, 0.726),rgba(2, 105, 83, 0.616), rgba(0, 20, 34, 0.904)), url(Images/Wallpaper/Avila.gif);
   display: flex;
   background-repeat: no-repeat;
   background-size: cover;
