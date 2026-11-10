@@ -16,6 +16,21 @@
         <link rel="preload" fetchpriority="high" as="image" href="Images/Home_3.jpeg" type="image/jpeg">
         <h1>WELCOME</h1>
 
+        <!-- Preloader con el robot de UI/UX -->
+        <div id="page-loader" class="page-loader">
+            <div class="loader-content">
+                <!-- Aquí puedes poner la imagen o ilustración SVG de tu robot -->
+                <div class="robot-avatar-container">
+                <img src="Images/Robot/FaceRobot.png" alt="UX/UI Robot Assistant" class="loader-robot-img">
+                <div class="scanner-line"></div> <!-- Un efecto extra opcional de escaneo tecnológico -->
+                </div>
+                <h2 class="loader-title">Loading...</h2>
+                <div class="loader-progress-bar">
+                <div class="loader-progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- "Menu" -->
          <div class="menuContainer">
             <div class="menuLeft">
@@ -31,7 +46,12 @@
                             <div class="resume-content">
                                 <div class="hereistheflex">
                                     <h2 class="title-section">RESUMES</h2>
-                                    <span class="close-button" onclick="closeResumeModal(event)">&times;</span>
+                                    <span   class="close-button" 
+                                        style="cursor: pointer; color: #93ffa1;" 
+                                        onmouseover="this.style.color='#fff'" 
+                                        onmouseout="this.style.color='#93ffa1'" 
+                                        onclick="closeResumeModal(event)">&times;
+                                    </span>
                                 </div>
                                 
                                 <h3>Click the links below to see my resumes:</h3><br>
@@ -437,20 +457,19 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <script>
-    window.addEventListener('DOMContentLoaded', () => {
-        // Retrasa la carga de partículas 2.5 segundos para que la web cargue instantáneo
-        setTimeout(() => {
-        const script = document.createElement('script');
-        script.src = "ruta/de/tu/particles.min.js"; // Pon aquí la ruta de tu archivo particles.js
-        script.onload = () => {
-            // Aquí adentro pones el código con el que inicias tus partículas, ej:
-            particlesJS.load('particles-js', 'assets/particles.json', function() {
-            console.log('Partículas cargadas en segundo plano.');
-            });
-        };
-        document.body.appendChild(script);
-        }, 5500); 
-    });
+        window.addEventListener('DOMContentLoaded', () => {
+        
+            setTimeout(() => {
+            const script = document.createElement('script');
+            script.src = "ruta/de/tu/particles.min.js";
+            script.onload = () => {
+                particlesJS.load('particles-js', 'assets/particles.json', function() {
+                console.log('Partículas cargadas en segundo plano.');
+                });
+            };
+            document.body.appendChild(script);
+            }, 5500); 
+        });
     </script>
     
 </body>

@@ -12,7 +12,7 @@ html {
 
 .home{
     position: relative;
-    background: linear-gradient( rgba(0,0,0, .5), rgba(0, 0, 0, 0.330)), url(Images/Home_3.jpeg);
+    background: linear-gradient( rgba(0,0,0, .5), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.330)), url(Images/Wallpaper/Home_3.jpeg);
     background-size: cover;
     background-position: center center;
     padding-top: 10px;
@@ -42,6 +42,103 @@ html {
     height: 100%;
     z-index: 1;
     pointer-events: none;
+}
+
+/* Pantalla de Carga */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient( rgba(3, 40, 61, 0.726),rgba(2, 105, 83, 0.616), rgba(0, 20, 34, 0.904)), url(Images/Wallpaper/avila.gif);
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Clase para ocultar el loader cuando termine de cargar */
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Contenedor del robot con un leve pulso o flotación */
+.robot-avatar-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  animation: floatRobot 2s ease-in-out infinite;
+}
+
+.loader-robot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Efecto opcional de línea de escaneo estilo HUD */
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: #93ffa1;
+  box-shadow: 0 0 8px #93ffa1;
+  animation: scanMove 1.5s ease-in-out infinite alternate;
+}
+
+.loader-title {
+  color: #93ffa1;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+/* Barra de progreso minimalista */
+.loader-progress-bar {
+  width: 250px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loader-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #93ffa1;
+  animation: progressAnimation 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Keyframes de animaciones */
+@keyframes floatRobot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scanMove {
+  0% { top: 0%; opacity: 0.8; }
+  100% { top: 100%; opacity: 0.2; }
+}
+
+@keyframes progressAnimation {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 /* Menu */

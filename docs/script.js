@@ -485,3 +485,18 @@ function closeResumeModal(event) {
         modal.style.display = "none";
     }, 300);
 }
+/* Preloader */
+window.addEventListener('load', () => {
+  const loader = document.getElementById('page-loader');
+  
+  // Opcional: un pequeño delay (ej. 800ms) para que el usuario alcance a ver el robot
+  setTimeout(() => {
+    loader.classList.add('fade-out');
+    
+    // Opcional: removerlo del DOM por completo tras la transición para liberar memoria
+    setTimeout(() => {
+      loader.remove();
+    }, 1700);
+    
+  }, 2200); 
+});
