@@ -294,6 +294,22 @@ const raksusGalleries = {
     "Images/Raksus/Planos/Hardware created.webp",
     "Images/Raksus/Planos/PortadaPlanos2.webp",
   ],
+  'RAKSUS_LANDINGPAGE': [
+    "Images/Raksus/Landing/Eng/0.webp",
+    "Images/Raksus/Landing/Eng/1.webp",
+    "Images/Raksus/Landing/Eng/2.webp",
+    "Images/Raksus/Landing/Eng/3.webp",
+    "Images/Raksus/Landing/Eng/4.webp",
+    "Images/Raksus/Landing/Eng/5.webp",
+    "Images/Raksus/Landing/Eng/6.webp",
+    "Images/Raksus/Landing/Spa/0.webp",
+    "Images/Raksus/Landing/Spa/1.webp",
+    "Images/Raksus/Landing/Spa/2.webp",
+    "Images/Raksus/Landing/Spa/3.webp",
+    "Images/Raksus/Landing/Spa/4.webp",
+    "Images/Raksus/Landing/Spa/5.webp",
+    "Images/Raksus/Landing/Spa/6.webp"
+  ],
   'Nescafe_Journey_Map': [
     "Images/Nescafe/JourneyMap/Usuario 1.webp",
     "Images/Nescafe/JourneyMap/Usuario 2.webp",
@@ -345,7 +361,23 @@ const raksusGalleries = {
         "Images/Teresuelvo/Mockups/Mockup4.webp",
         "Images/Teresuelvo/Mockups/Mockup2.webp",
         "Images/Teresuelvo/Mockups/Branding3.webp",
-    ]
+    ],
+    'TERESUELVO_LANDINGPAGE':[
+        "Images/Teresuelvo/Landing/Eng/0.webp",
+        "Images/Teresuelvo/Landing/Eng/1.webp",
+        "Images/Teresuelvo/Landing/Eng/2.webp",
+        "Images/Teresuelvo/Landing/Eng/3.webp",
+        "Images/Teresuelvo/Landing/Eng/4.webp",
+        "Images/Teresuelvo/Landing/Eng/5.webp",
+        "Images/Teresuelvo/Landing/Eng/6.webp",
+        "Images/Teresuelvo/Landing/Spa/0.webp",
+        "Images/Teresuelvo/Landing/Spa/1.webp",
+        "Images/Teresuelvo/Landing/Spa/2.webp",
+        "Images/Teresuelvo/Landing/Spa/3.webp",
+        "Images/Teresuelvo/Landing/Spa/4.webp",
+        "Images/Teresuelvo/Landing/Spa/5.webp",
+        "Images/Teresuelvo/Landing/Spa/6.webp",
+      ],
 };
 
 // --- VARIABLES DE ESTADO ---
