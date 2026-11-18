@@ -315,7 +315,7 @@ const raksusGalleries = {
     "Images/Nescafe/JourneyMap/Usuario 2.webp",
     "Images/Nescafe/JourneyMap/Usuario 3.webp",
     "Images/Nescafe/JourneyMap/Journey_Map.webp"
-    ],
+  ],
     'Nescafe_Arquitecure': [
     "Images/Nescafe/Arquitectura/Arquitectura_Conductor1.webp",
     "Images/Nescafe/Arquitectura/Arquitectura_Conductor2.webp",
@@ -324,17 +324,17 @@ const raksusGalleries = {
     "Images/Nescafe/Arquitectura/Arquitectura_Usuario2.webp",
     "Images/Nescafe/Arquitectura/Arquitectura_Usuario3.webp",
     "Images/Nescafe/AQDI.webp"
-    ],
+  ],
     'Nescafe_Branding':[
     "Images/Nescafe/Branding/NESCAFE Bag.webp",
     "Images/Nescafe/Branding/NESCAFE Jacket.webp",
-    ],
+  ],
     'Nescafe_CandyMockups1':[
     "Images/Nescafe/Nescafe_Candy/MockupsNCC_V1.webp",
     "Images/Nescafe/Nescafe_Candy/MockupsNCC_V2.webp",
     "Images/Nescafe/Nescafe_Candy/MockupsNOC_V1.webp",
     "Images/Nescafe/Nescafe_Candy/MockupsNOC_V2.webp",
-    ],
+  ],
     'Nescafe_CandyMockups2':[
     "Images/Nescafe/Nescafe_Candy/Cuadrados/M1.webp",
     "Images/Nescafe/Nescafe_Candy/Cuadrados/M2.webp",
@@ -342,7 +342,7 @@ const raksusGalleries = {
     "Images/Nescafe/Nescafe_Candy/Redondos/M1.webp",
     "Images/Nescafe/Nescafe_Candy/Redondos/M2.webp",
     "Images/Nescafe/Nescafe_Candy/Redondos/M3.webp",
-    ],
+  ],
     'TERESUELVO_ARQ':[
         "Images/Teresuelvo/Arquitectura/Usuario.webp",
         "Images/Teresuelvo/Arquitectura/Lider de comunidad.webp",
@@ -350,18 +350,18 @@ const raksusGalleries = {
         "Images/Teresuelvo/Arquitectura/Diagrama1.webp",
         "Images/Teresuelvo/Arquitectura/Diagrama2.webp",
         "Images/Teresuelvo/Arquitectura/Diagrama3.webp",
-    ],
+  ],
     'TERESUELVO_JOURNEY':[
         "Images/Teresuelvo/Journey/Journey_Map1.webp",
         "Images/Teresuelvo/Journey/Journey_Map2.webp",
         "Images/Teresuelvo/Journey/Journey_Map3.webp",
-    ],
+  ],
     'TERESUELVO_BRANDING':[
         "Images/Teresuelvo/Mockups/Mockup1.webp",
         "Images/Teresuelvo/Mockups/Mockup4.webp",
         "Images/Teresuelvo/Mockups/Mockup2.webp",
         "Images/Teresuelvo/Mockups/Branding3.webp",
-    ],
+  ],
     'TERESUELVO_LANDINGPAGE':[
         "Images/Teresuelvo/Landing/Eng/0.webp",
         "Images/Teresuelvo/Landing/Eng/1.webp",
@@ -377,7 +377,21 @@ const raksusGalleries = {
         "Images/Teresuelvo/Landing/Spa/4.webp",
         "Images/Teresuelvo/Landing/Spa/5.webp",
         "Images/Teresuelvo/Landing/Spa/6.webp",
+    ],
+    'SMARSHEETCASESPA':[
+        "Images/smartsheet/case of study/SPA/1pag.webp",
+        "Images/smartsheet/case of study/SPA/2pag.webp",
+        "Images/smartsheet/case of study/SPA/3pag.webp",
+        "Images/smartsheet/case of study/SPA/4pag.webp",
+        "Images/smartsheet/case of study/SPA/5pag.webp",
       ],
+      'SMARSHEETCASEENG':[
+        "Images/smartsheet/case of study/ENG/Pag 1.webp",
+        "Images/smartsheet/case of study/ENG/Pag 2.webp",
+        "Images/smartsheet/case of study/ENG/Pag 3.webp",
+        "Images/smartsheet/case of study/ENG/Pag 4.webp",
+        "Images/smartsheet/case of study/ENG/Pag 5.webp",
+      ]
 };
 
 // --- VARIABLES DE ESTADO ---
