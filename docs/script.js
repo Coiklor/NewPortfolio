@@ -326,8 +326,8 @@ const raksusGalleries = {
     "Images/Nescafe/AQDI.webp"
   ],
     'Nescafe_Branding':[
-    "Images/Nescafe/Branding/NESCAFE Bag.webp",
-    "Images/Nescafe/Branding/NESCAFE Jacket.webp",
+    "Images/Nescafe/Branding/ReversionBag.webp",
+    "Images/Nescafe/Branding/ReversionHoodie.webp",
   ],
     'Nescafe_CandyMockups1':[
     "Images/Nescafe/Nescafe_Candy/MockupsNCC_V1.webp",
@@ -384,6 +384,7 @@ const raksusGalleries = {
         "Images/smartsheet/case of study/SPA/3pag.webp",
         "Images/smartsheet/case of study/SPA/4pag.webp",
         "Images/smartsheet/case of study/SPA/5pag.webp",
+        "Images/smartsheet/case of study/SPA/6pag.webp",
       ],
       'SMARSHEETCASEENG':[
         "Images/smartsheet/case of study/ENG/Pag 1.webp",
@@ -391,6 +392,7 @@ const raksusGalleries = {
         "Images/smartsheet/case of study/ENG/Pag 3.webp",
         "Images/smartsheet/case of study/ENG/Pag 4.webp",
         "Images/smartsheet/case of study/ENG/Pag 5.webp",
+        "Images/smartsheet/case of study/ENG/Pag 6.webp",
       ]
 };
 
