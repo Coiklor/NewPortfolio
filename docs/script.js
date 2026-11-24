@@ -247,158 +247,156 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* Carousel */
-// --- CONFIGURACIÓN DE DATOS ---
-// Define aquí qué imágenes van dentro de CADA carrusel independiente.
-// Las claves ('journey', 'research', 'survey') deben coincidir con las llamadas en el HTML.
 const raksusGalleries = {
   'journey': [
-    "Images/Raksus/Journey Map.webp",
-    "Images/Raksus/Journey Map2.webp",
-    "Images/Raksus/Journey Map3.webp",
-    "Images/Raksus/Journey Map4.webp"  
+    { type: "image", src: "Images/Raksus/Journey Map.webp" },
+    { type: "image", src: "Images/Raksus/Journey Map2.webp" },
+    { type: "image", src: "Images/Raksus/Journey Map3.webp" },
+    { type: "image", src: "Images/Raksus/Journey Map4.webp" }
   ],
   'research': [
-    "Images/Raksus/Research/Screenshot_2.webp",
-    "Images/Raksus/Research/Screenshot_3.webp",
-    "Images/Raksus/Research/Screenshot_4.webp",
-    "Images/Raksus/Research/Screenshot_5.webp",
-    "Images/Raksus/Research/Screenshot_6.webp",
-    "Images/Raksus/Research/Screenshot_7.webp",
-    "Images/Raksus/Research/Screenshot_8.webp",
-    "Images/Raksus/Research/Screenshot_9.webp",
-    "Images/Raksus/Research/Screenshot_10.webp",
-    "Images/Raksus/Research/Screenshot_11.webp",
-    "Images/Raksus/Research/Screenshot_12.webp"
+    { type: "image", src: "Images/Raksus/Research/Screenshot_2.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_3.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_4.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_5.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_6.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_7.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_8.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_9.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_10.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_11.webp" },
+    { type: "image", src: "Images/Raksus/Research/Screenshot_12.webp" }
   ],
   'survey': [
-    "Images/Raksus/Survey/Portada Survey.webp", // Foto 1 (Portada)
-    "Images/Raksus/Survey/Portada Survey_ESP.webp",
-    "Images/Raksus/Survey/Question 1.webp",
-    "Images/Raksus/Survey/Question 2.webp",
-    "Images/Raksus/Survey/Question 3.webp",
-    "Images/Raksus/Survey/Question 4.webp",
-    "Images/Raksus/Survey/Question 5.webp",
-    "Images/Raksus/Survey/Question 6.webp",
-    "Images/Raksus/Survey/Question 7.webp",
-    "Images/Raksus/Survey/Question 8.webp",
-    "Images/Raksus/Survey/Question 9.webp",
-    "Images/Raksus/Survey/Question 10.webp",
-    "Images/Raksus/Survey/Resultados.webp",
-    "Images/Raksus/Survey/Resultados test 1.webp",
-    "Images/Raksus/Survey/Resultados test 2.webp",
-    "Images/Raksus/Survey/Resultados test 3.webp",
-    "Images/Raksus/Survey/Resultados test 4.webp",
+    { type: "image", src: "Images/Raksus/Survey/Portada Survey.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Portada Survey_ESP.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 1.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 2.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 3.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 4.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 5.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 6.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 7.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 8.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 9.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Question 10.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Resultados.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Resultados test 1.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Resultados test 2.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Resultados test 3.webp" },
+    { type: "image", src: "Images/Raksus/Survey/Resultados test 4.webp" }
   ],
   'planos': [
-    "Images/Raksus/Planos/Hardware Raksus.webp",
-    "Images/Raksus/Planos/Hardware created.webp",
-    "Images/Raksus/Planos/PortadaPlanos2.webp",
+    { type: "image", src: "Images/Raksus/Planos/Hardware Raksus.webp" },
+    { type: "image", src: "Images/Raksus/Planos/Hardware created.webp" },
+    { type: "image", src: "Images/Raksus/Planos/PortadaPlanos2.webp" },
+    { type: "video", src: "Images/Raksus/Planos/HardwareRaksusVideo.mp4" }
   ],
   'RAKSUS_LANDINGPAGE': [
-    "Images/Raksus/Landing/Eng/0.webp",
-    "Images/Raksus/Landing/Eng/1.webp",
-    "Images/Raksus/Landing/Eng/2.webp",
-    "Images/Raksus/Landing/Eng/3.webp",
-    "Images/Raksus/Landing/Eng/4.webp",
-    "Images/Raksus/Landing/Eng/5.webp",
-    "Images/Raksus/Landing/Eng/6.webp",
-    "Images/Raksus/Landing/Spa/0.webp",
-    "Images/Raksus/Landing/Spa/1.webp",
-    "Images/Raksus/Landing/Spa/2.webp",
-    "Images/Raksus/Landing/Spa/3.webp",
-    "Images/Raksus/Landing/Spa/4.webp",
-    "Images/Raksus/Landing/Spa/5.webp",
-    "Images/Raksus/Landing/Spa/6.webp"
+    { type: "image", src: "Images/Raksus/Landing/Eng/0.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/1.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/2.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/3.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/4.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/5.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Eng/6.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/0.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/1.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/2.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/3.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/4.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/5.webp" },
+    { type: "image", src: "Images/Raksus/Landing/Spa/6.webp" }
   ],
   'Nescafe_Journey_Map': [
-    "Images/Nescafe/JourneyMap/Usuario 1.webp",
-    "Images/Nescafe/JourneyMap/Usuario 2.webp",
-    "Images/Nescafe/JourneyMap/Usuario 3.webp",
-    "Images/Nescafe/JourneyMap/Journey_Map.webp"
+    { type: "image", src: "Images/Nescafe/JourneyMap/Usuario 1.webp" },
+    { type: "image", src: "Images/Nescafe/JourneyMap/Usuario 2.webp" },
+    { type: "image", src: "Images/Nescafe/JourneyMap/Usuario 3.webp" },
+    { type: "image", src: "Images/Nescafe/JourneyMap/Journey_Map.webp" }
   ],
     'Nescafe_Arquitecure': [
-    "Images/Nescafe/Arquitectura/Arquitectura_Conductor1.webp",
-    "Images/Nescafe/Arquitectura/Arquitectura_Conductor2.webp",
-    "Images/Nescafe/Arquitectura/Arquitectura_Conductor3.webp",
-    "Images/Nescafe/Arquitectura/Arquitectura_Usuario1.webp",
-    "Images/Nescafe/Arquitectura/Arquitectura_Usuario2.webp",
-    "Images/Nescafe/Arquitectura/Arquitectura_Usuario3.webp",
-    "Images/Nescafe/AQDI.webp"
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Conductor1.webp" },
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Conductor2.webp" },
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Conductor3.webp" },
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Usuario1.webp" },
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Usuario2.webp" },
+    { type: "image", src: "Images/Nescafe/Arquitectura/Arquitectura_Usuario3.webp" },
+    { type: "image", src: "Images/Nescafe/AQDI.webp" }
   ],
     'Nescafe_Branding':[
-    "Images/Nescafe/Branding/ReversionBag.webp",
-    "Images/Nescafe/Branding/ReversionHoodie.webp",
+    { type: "image", src: "Images/Nescafe/Branding/ReversionBag.webp" },
+    { type: "image", src: "Images/Nescafe/Branding/ReversionHoodie.webp" },
   ],
     'Nescafe_CandyMockups1':[
-    "Images/Nescafe/Nescafe_Candy/MockupsNCC_V1.webp",
-    "Images/Nescafe/Nescafe_Candy/MockupsNCC_V2.webp",
-    "Images/Nescafe/Nescafe_Candy/MockupsNOC_V1.webp",
-    "Images/Nescafe/Nescafe_Candy/MockupsNOC_V2.webp",
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/MockupsNCC_V1.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/MockupsNCC_V2.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/MockupsNOC_V1.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/MockupsNOC_V2.webp" },
   ],
     'Nescafe_CandyMockups2':[
-    "Images/Nescafe/Nescafe_Candy/Cuadrados/M1.webp",
-    "Images/Nescafe/Nescafe_Candy/Cuadrados/M2.webp",
-    "Images/Nescafe/Nescafe_Candy/Cuadrados/M3.webp",
-    "Images/Nescafe/Nescafe_Candy/Redondos/M1.webp",
-    "Images/Nescafe/Nescafe_Candy/Redondos/M2.webp",
-    "Images/Nescafe/Nescafe_Candy/Redondos/M3.webp",
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Cuadrados/M1.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Cuadrados/M2.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Cuadrados/M3.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Redondos/M1.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Redondos/M2.webp" },
+    { type: "image", src: "Images/Nescafe/Nescafe_Candy/Redondos/M3.webp" },
   ],
     'TERESUELVO_ARQ':[
-        "Images/Teresuelvo/Arquitectura/Usuario.webp",
-        "Images/Teresuelvo/Arquitectura/Lider de comunidad.webp",
-        "Images/Teresuelvo/Arquitectura/Alcaldia.webp",
-        "Images/Teresuelvo/Arquitectura/Diagrama1.webp",
-        "Images/Teresuelvo/Arquitectura/Diagrama2.webp",
-        "Images/Teresuelvo/Arquitectura/Diagrama3.webp",
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Usuario.webp" },
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Lider de comunidad.webp" },
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Alcaldia.webp" },
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Diagrama1.webp" },
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Diagrama2.webp" },
+        { type: "image", src: "Images/Teresuelvo/Arquitectura/Diagrama3.webp" },
   ],
     'TERESUELVO_JOURNEY':[
-        "Images/Teresuelvo/Journey/Journey_Map1.webp",
-        "Images/Teresuelvo/Journey/Journey_Map2.webp",
-        "Images/Teresuelvo/Journey/Journey_Map3.webp",
+        { type: "image", src: "Images/Teresuelvo/Journey/Journey_Map1.webp" },
+        { type: "image", src: "Images/Teresuelvo/Journey/Journey_Map2.webp" },
+        { type: "image", src: "Images/Teresuelvo/Journey/Journey_Map3.webp" },
   ],
     'TERESUELVO_BRANDING':[
-        "Images/Teresuelvo/Mockups/Mockup1.webp",
-        "Images/Teresuelvo/Mockups/Mockup4.webp",
-        "Images/Teresuelvo/Mockups/Mockup2.webp",
-        "Images/Teresuelvo/Mockups/Branding3.webp",
+        { type: "image", src: "Images/Teresuelvo/Mockups/Mockup1.webp" },
+        { type: "image", src: "Images/Teresuelvo/Mockups/Mockup4.webp" },
+        { type: "image", src: "Images/Teresuelvo/Mockups/Mockup2.webp" },
+        { type: "image", src: "Images/Teresuelvo/Mockups/Branding3.webp" },
   ],
     'TERESUELVO_LANDINGPAGE':[
-        "Images/Teresuelvo/Landing/Eng/0.webp",
-        "Images/Teresuelvo/Landing/Eng/1.webp",
-        "Images/Teresuelvo/Landing/Eng/2.webp",
-        "Images/Teresuelvo/Landing/Eng/3.webp",
-        "Images/Teresuelvo/Landing/Eng/4.webp",
-        "Images/Teresuelvo/Landing/Eng/5.webp",
-        "Images/Teresuelvo/Landing/Eng/6.webp",
-        "Images/Teresuelvo/Landing/Spa/0.webp",
-        "Images/Teresuelvo/Landing/Spa/1.webp",
-        "Images/Teresuelvo/Landing/Spa/2.webp",
-        "Images/Teresuelvo/Landing/Spa/3.webp",
-        "Images/Teresuelvo/Landing/Spa/4.webp",
-        "Images/Teresuelvo/Landing/Spa/5.webp",
-        "Images/Teresuelvo/Landing/Spa/6.webp",
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/0.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/1.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/2.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/3.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/4.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/5.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Eng/6.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/0.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/1.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/2.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/3.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/4.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/5.webp" },
+        { type: "image", src: "Images/Teresuelvo/Landing/Spa/6.webp" },
     ],
     'SMARSHEETCASESPA':[
-        "Images/smartsheet/case of study/SPA/1pag.webp",
-        "Images/smartsheet/case of study/SPA/2pag.webp",
-        "Images/smartsheet/case of study/SPA/3pag.webp",
-        "Images/smartsheet/case of study/SPA/4pag.webp",
-        "Images/smartsheet/case of study/SPA/5pag.webp",
-        "Images/smartsheet/case of study/SPA/6pag.webp",
+        { type: "image", src: "Images/smartsheet/case of study/SPA/1pag.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/SPA/2pag.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/SPA/3pag.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/SPA/4pag.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/SPA/5pag.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/SPA/6pag.webp" },
       ],
       'SMARSHEETCASEENG':[
-        "Images/smartsheet/case of study/ENG/Pag 1.webp",
-        "Images/smartsheet/case of study/ENG/Pag 2.webp",
-        "Images/smartsheet/case of study/ENG/Pag 3.webp",
-        "Images/smartsheet/case of study/ENG/Pag 4.webp",
-        "Images/smartsheet/case of study/ENG/Pag 5.webp",
-        "Images/smartsheet/case of study/ENG/Pag 6.webp",
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 1.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 2.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 3.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 4.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 5.webp" },
+        { type: "image", src: "Images/smartsheet/case of study/ENG/Pag 6.webp" },
       ]
 };
 
 // --- VARIABLES DE ESTADO ---
 let carouselCurrentIndex = 0;
-let currentGalleryKey = ''; // Guarda qué galería estamos viendo actualmente ('journey', etc.)
+let currentGalleryKey = ''; 
 
 // --- FUNCIONES ---
 
@@ -445,9 +443,10 @@ function closeCarouselModal(event) {
   const isClickCloseBtn = event && event.target.classList.contains('carousel-close');
 
   if (!event || isClickOutside || isClickCloseBtn) {
+    pauseCarouselVideo();
+
     const modal = document.getElementById('carousel-modal');
     if (modal) {
-      
       modal.style.transition = "opacity 0.25s ease-in";
       modal.style.opacity = "0";
 
@@ -457,7 +456,6 @@ function closeCarouselModal(event) {
         content.style.transform = "translateY(20px) scale(0.95)";
       }
 
-     
       setTimeout(() => {
         modal.style.display = "none";
         if (content) content.style.transform = "none";
@@ -469,6 +467,87 @@ function closeCarouselModal(event) {
   }
 }
 
+function updateCarouselImage() {
+  const enlargedImg = document.getElementById('carousel-enlarged-image');
+  const counter = document.getElementById('carousel-counter');
+
+  if (enlargedImg && counter && currentGalleryKey) {
+    const items = raksusGalleries[currentGalleryKey];
+    const rawItem = items[carouselCurrentIndex];
+    const item = typeof rawItem === 'string'
+      ? { type: 'image', src: rawItem }
+      : rawItem;
+
+    const videoEl = getOrCreateCarouselVideo(enlargedImg);
+    const activeMedia = item.type === 'video' ? videoEl : enlargedImg;
+    const inactiveMedia = item.type === 'video' ? enlargedImg : videoEl;
+
+    pauseCarouselVideo();
+
+    if (inactiveMedia) {
+      inactiveMedia.style.opacity = '0';
+      inactiveMedia.style.display = 'none';
+    }
+
+    if (activeMedia) {
+      activeMedia.style.transition = 'opacity 0.15s ease-in';
+      activeMedia.style.opacity = '0';
+    }
+
+    setTimeout(() => {
+      counter.textContent = `${carouselCurrentIndex + 1} / ${items.length}`;
+
+      if (item.type === 'video' && videoEl) {
+        enlargedImg.style.display = 'none';
+        videoEl.style.display = 'block';
+        videoEl.poster = item.poster || 'Images/Raksus/Planos/PortadaPlanos2.webp';
+        videoEl.src = item.src;
+        videoEl.load();
+
+        requestAnimationFrame(() => {
+          videoEl.style.transition = 'opacity 0.2s ease-out';
+          videoEl.style.opacity = '1';
+        });
+      } else {
+        if (videoEl) videoEl.style.display = 'none';
+        enlargedImg.style.display = 'block';
+        enlargedImg.src = item.src;
+
+        requestAnimationFrame(() => {
+          enlargedImg.style.transition = 'opacity 0.2s ease-out';
+          enlargedImg.style.opacity = '1';
+        });
+      }
+    }, 150);
+  }
+}
+
+/* Video modal */
+
+function pauseCarouselVideo() {
+  const videoEl = document.getElementById('carousel-enlarged-video');
+  if (videoEl) {
+    videoEl.pause();
+  }
+}
+
+function getOrCreateCarouselVideo(imgEl) {
+  let videoEl = document.getElementById('carousel-enlarged-video');
+  if (!videoEl && imgEl && imgEl.parentNode) {
+    videoEl = document.createElement('video');
+    videoEl.id = 'carousel-enlarged-video';
+    videoEl.className = 'video_format';
+    videoEl.controls = true;
+    videoEl.preload = 'metadata';
+    videoEl.style.width = '920px';
+    videoEl.style.maxWidth = '100%';
+    videoEl.style.marginLeft = '8px';
+    videoEl.style.borderRadius = '8px';
+    videoEl.style.display = 'none';
+    imgEl.parentNode.insertBefore(videoEl, imgEl.nextSibling);
+  }
+  return videoEl;
+}
 
 function navigateCarousel(step, event) {
   if (event) event.stopPropagation(); 
@@ -485,26 +564,6 @@ function navigateCarousel(step, event) {
   }
   
   updateCarouselImage();
-}
-
-
-function updateCarouselImage() {
-  const enlargedImg = document.getElementById('carousel-enlarged-image');
-  const counter = document.getElementById('carousel-counter');
-
-  if (enlargedImg && counter && currentGalleryKey) {
-    const images = raksusGalleries[currentGalleryKey];
-    enlargedImg.style.transition = "opacity 0.15s ease-in";
-    enlargedImg.style.opacity = "0";
-
-    
-    setTimeout(() => {
-      enlargedImg.src = images[carouselCurrentIndex];
-      counter.textContent = `${carouselCurrentIndex + 1} / ${images.length}`;
-      enlargedImg.style.transition = "opacity 0.2s ease-out";
-      enlargedImg.style.opacity = "1";
-    }, 150);
-  }
 }
 
 function handleCarouselKeyPress(e) {
@@ -533,6 +592,7 @@ function closeResumeModal(event) {
         modal.style.display = "none";
     }, 300);
 }
+
 /* Preloader */
 window.addEventListener('load', () => {
   const loader = document.getElementById('page-loader');
