@@ -1,3 +1,75 @@
+/* menu right */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuRight = document.getElementById("menuRight");
+    const toggleBtn = document.getElementById("menuToggleBtn");
+    const robotFace = document.getElementById("face_robot");
+
+    if (!menuRight || !toggleBtn) return;
+
+    function setMenuState(isOpen) {
+        menuRight.classList.toggle("is-menu-open", isOpen);
+        toggleBtn.setAttribute("aria-expanded", String(isOpen));
+
+        // Dispara un evento personalizado para que el brazo sepa cuándo salir o guardarse
+        document.dispatchEvent(new CustomEvent("portfolio:menuToggle", {
+            detail: { isOpen }
+        }));
+
+        if (isOpen) {
+            // Simula el instante en que el brazo "le da" al botón/menú
+            setTimeout(() => {
+                menuRight.classList.add("is-menu-hit");
+                setTimeout(() => menuRight.classList.remove("is-menu-hit"), 180);
+            }, 140);
+        }
+    }
+
+    toggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const willOpen = !menuRight.classList.contains("is-menu-open");
+        setMenuState(willOpen);
+    });
+
+    // Cerrar al hacer clic fuera del menú
+    document.addEventListener("click", (e) => {
+    const resumeModal = document.getElementById("resume-modal");
+    const clickedInsideModal = resumeModal && resumeModal.contains(e.target);
+
+    if (menuRight.classList.contains("is-menu-open") && !menuRight.contains(e.target) && !clickedInsideModal) {
+        setMenuState(false);
+    }
+    });
+
+    // Cerrar con Escape
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menuRight.classList.contains("is-menu-open")) {
+            setMenuState(false);
+        }
+    });
+
+    // Mensajes del robot para el botón y los links del menú desplegable
+    if (robotFace) {
+        const originalMsg = robotFace.getAttribute("data-message");
+        const menuMsgTargets = menuRight.querySelectorAll("[data-message]");
+
+        menuMsgTargets.forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                const newMsg = el.getAttribute("data-message");
+                if (newMsg) {
+                    robotFace.setAttribute("data-message", newMsg);
+                    robotFace.classList.add("robot-speaking");
+                }
+            });
+
+            el.addEventListener("mouseleave", () => {
+                robotFace.classList.remove("robot-speaking");
+                robotFace.setAttribute("data-message", originalMsg);
+            });
+        });
+    }
+});
+
 /* Dynamic robot */
 const cube = document.querySelector('.cube');
 const faces = document.querySelectorAll('.face');
