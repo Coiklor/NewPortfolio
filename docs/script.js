@@ -190,6 +190,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* Robot Arms */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const boxes = Array.from(document.querySelectorAll(".project-item")); // Ajusta si tu clase es otra
+    const rightArm = document.getElementById("cssArmRight");
+
+    const poseClasses = [
+        "pose-center",
+        "pose-semi-left",
+        "pose-semi-right",
+        "pose-corner-left",
+        "pose-corner-right"
+    ];
+
+    let poseTimeout = null;
+
+    function setPose(poseClass, duration = 800) {
+        document.body.classList.remove(...poseClasses);
+
+        if (poseTimeout) {
+            clearTimeout(poseTimeout);
+            poseTimeout = null;
+        }
+
+        if (poseClass) {
+            document.body.classList.add(poseClass);
+            poseTimeout = setTimeout(() => {
+                document.body.classList.remove(...poseClasses);
+                poseTimeout = null;
+            }, duration);
+        }
+    }
+
+    if (boxes.length) {
+        const centerIdx = Math.floor(boxes.length / 2);
+
+        boxes.forEach((box, idx) => {
+            box.addEventListener("click", () => {
+                const diff = idx - centerIdx;
+                const step = Math.abs(diff);
+
+                if (step === 0) {
+                    setPose("pose-center");
+                } else if (step === 1) {
+                    setPose(diff < 0 ? "pose-semi-left" : "pose-semi-right");
+                } else {
+                    setPose(diff < 0 ? "pose-corner-left" : "pose-corner-right");
+                }
+            });
+        });
+    }
+
+    window.addEventListener("mousemove", (e) => {
+        if (!document.body.classList.contains("menu-is-open") || !rightArm) return;
+
+        const rect = rightArm.getBoundingClientRect();
+        const deg = (Math.atan2(e.clientY - rect.top, e.clientX - rect.left) * 180) / Math.PI;
+        const clamped = Math.max(-75, Math.min(20, deg));
+
+        rightArm.style.setProperty("--arm-rot", `${clamped.toFixed(1)}deg`);
+    });
+});
+
 /* Dynamic text */
 const textElement = document.querySelector(".dynamic-text");
 const phrases = ["UX/UI_DESIGNER", "UX_SECURITY", "CREATIVE", "SELF_TOUGHT"];

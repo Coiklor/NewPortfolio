@@ -19,17 +19,18 @@
         <!-- Preloader con el robot de UI/UX -->
         <div id="page-loader" class="page-loader">
             <div class="loader-content">
-                <!-- Aquí puedes poner la imagen o ilustración SVG de tu robot -->
+                
                 <div class="robot-avatar-container">
                 <img src="Images/Robot/FaceRobot.webp" alt="UX/UI Robot Assistant" class="loader-robot-img">
-                <div class="scanner-line"></div> <!-- Un efecto extra opcional de escaneo tecnológico -->
+                <div class="scanner-line"></div>
                 </div>
                 <h2 class="loader-title">Loading...</h2>
                 <div class="loader-progress-bar">
                 <div class="loader-progress-fill"></div>
                 </div>
             </div>
-        </div>
+        </div> 
+        
 
         <!-- Contenedor de resumes -->
             <div id="resume-modal" class="resume-modal">
@@ -445,6 +446,7 @@
                 <div class="face back">
                     <div class="robotSkin"></div>
                 </div>
+
                 <div class="face right">
                     <div class="facesideContainer">
                         <div class="sideBox">
@@ -453,6 +455,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="face left">
                     <div class="facesideContainer">
                         <div class="sideBox">
@@ -461,12 +464,51 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="face top">
                     <div class="robotSkin"></div>
                 </div>
                 <div class="face bottom">
                     <div class="robotSkin"></div>
                 </div>
+
+                <!-- Robot Arms -->
+                <div class="css-arms-layer" id="cssArmsLayer" aria-hidden="true">
+                    <!-- Brazo izquierdo -->
+                    <div class="css-arm arm-left" id="cssArmLeft">
+                        <div class="arm-joint shoulder"></div>
+                        <div class="arm-segment upper">
+                            <div class="arm-joint elbow"></div>
+                            <div class="arm-segment forearm">
+                                <div class="arm-chain"></div>
+                                <div class="arm-claw">
+                                    <div class="arm-joint wrist"></div>
+                                    <div class="claw-finger top"></div>
+                                    <div class="claw-finger mid"></div>
+                                    <div class="claw-finger bot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brazo derecho -->
+                    <div class="css-arm arm-right" id="cssArmRight">
+                        <div class="arm-joint shoulder"></div>
+                        <div class="arm-segment upper">
+                            <div class="arm-joint elbow"></div>
+                            <div class="arm-segment forearm">
+                                <div class="arm-chain"></div>
+                                <div class="arm-claw">
+                                    <div class="arm-joint wrist"></div>
+                                    <div class="claw-finger top"></div>
+                                    <div class="claw-finger mid"></div>
+                                    <div class="claw-finger bot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 

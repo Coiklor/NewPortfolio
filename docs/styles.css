@@ -699,6 +699,392 @@ html {
     transition: all 0.2s;
 }
 
+/* Arms */
+.css-arms-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    z-index: 50;
+}
+
+.css-arm {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 0px;
+    height: 0;
+    pointer-events: none;
+    --arm-x: 0px;
+    --arm-y: 0px;
+    --arm-rot: 0deg;
+    --chain-len: 0px;
+    --elbow-rot: 25deg;
+    transform: translate(var(--arm-x), var(--arm-y)) rotate(var(--arm-rot));
+    transform-origin: 0% 50%;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+}
+
+/* Bordes laterales de la cara de 200px centrada en el cubo de 400px */
+.css-arm.arm-left {
+    --arm-x: -120px;
+    --arm-y: -100px;
+    --arm-rot: 125deg;
+    --elbow-rot: -25deg;
+}
+
+.css-arm.arm-right {
+    --arm-x: 120px;
+    --arm-y: -100px;
+    --arm-rot: 55deg;
+    --elbow-rot: 25deg;
+}
+
+.arm-joint {
+    position: absolute;
+    border-radius: 50%;
+    /* Núcleo oscuro + anillo verde neón + aro metálico exterior con muescas */
+    background:
+        radial-gradient(circle,
+            #020c18 0% 28%,
+            #93ffa1 30% 44%,
+            #062338 46% 68%,
+            #38bdf8 70% 76%,
+            #020c18 78% 100%
+        );
+    border: 2px solid #020c18;
+    box-shadow:
+        0 0 0 2px #38bdf8,
+        0 0 14px rgba(56, 189, 248, 0.45),
+        0 8px 18px rgba(1, 12, 24, 0.95);
+    z-index: 5;
+}
+
+.arm-joint::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    border: 2px dashed rgba(147, 255, 161, 0.85);
+}
+
+/* Hombro en el punto (0,0) del pivote del brazo */
+.arm-joint.shoulder {
+    width: 50px;
+    height: 50px;
+    left: -20px;
+    top: -20px;
+    border-radius: 10%;
+}
+
+/* Codo al final del brazo superior */
+.arm-joint.elbow {
+    width: 34px;
+    height: 34px;
+    right: -17px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arm-joint.wrist {
+    width: 24px;
+    height: 24px;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Brazo superior nace desde el hombro */
+.arm-segment.upper {
+    position: absolute;
+    left: 0;
+    top: -17px;
+    width: 122px;
+    height: 40px;
+    border-radius: 10px 14px 14px 10px;
+    background: linear-gradient(180deg,
+        #073b56 0%,
+        #031829 38%,
+        #020e1a 72%,
+        #084c6e 100%
+    );
+    border: 2px solid #ffff;
+    box-sizing: border-box;
+    transform-origin: 0% 50%;
+    box-shadow:
+        0 10px 22px rgba(1, 12, 24, 0.95),
+        0 0 12px rgba(56, 189, 248, 0.25),
+        inset 0 2px 3px rgba(186, 230, 253, 0.45),
+        inset 0 -4px 8px rgba(1, 10, 20, 0.95);
+    z-index: 2;
+}
+
+/* Antebrazo nace desde el codo y rota con --elbow-rot */
+.arm-segment.forearm {
+    position: absolute;
+    left: 100%;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    width: 114px;
+    height: 30px;
+    border-radius: 12px 8px 8px 12px;
+    background: linear-gradient(180deg,
+        #073b56 0%,
+        #031829 40%,
+        #020e1a 74%,
+        #084c6e 100%
+    );
+    border: 2px solid #fdfdfd;
+    box-sizing: border-box;
+    transform-origin: 0% 50%;
+    transform: translateY(-50%) rotate(var(--elbow-rot));
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow:
+        0 10px 20px rgba(1, 12, 24, 0.95),
+        0 0 12px rgba(56, 189, 248, 0.25),
+        inset 0 2px 3px rgba(186, 230, 253, 0.4),
+        inset 0 -4px 7px rgba(1, 10, 20, 0.95);
+    z-index: 3;
+}
+
+/* Cadena de eslabones en CSS puro */
+.arm-chain {
+    position: relative;
+    width: var(--chain-len);
+    height: 18px;
+    flex: 0 0 var(--chain-len);
+    opacity: 0;
+    margin-left: -2px;
+    border-top: 2px solid #38bdf8;
+    border-bottom: 2px solid #38bdf8;
+    background-color: #020e1a;
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 4px,
+        #073b56 4px,
+        #073b56 14px,
+        #93ffa1 14px,
+        #93ffa1 16px,
+        #020c18 16px,
+        #020c18 20px
+    );
+    box-shadow:
+        0 6px 14px rgba(1, 12, 24, 0.9),
+        0 0 10px rgba(56, 189, 248, 0.25),
+        inset 0 1px 0 rgba(186, 230, 253, 0.35);
+    transition: width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                flex-basis 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.2s ease;
+    z-index: 2;
+}
+
+/* Cuando tiene longitud mayor a 0px, se muestra la cadena */
+.css-arm[style*="--chain-len"] .arm-chain,
+body[class*="pose-"] .arm-chain {
+    opacity: 1;
+}
+
+/* Línea de circuito interior */
+.arm-segment.upper::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    width: 54px;
+    top: -4px;
+    bottom: -4px;
+    border-radius: 7px;
+    background: linear-gradient(180deg, #0a4b6b 0%, #03192b 50%, #073954 100%);
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+    pointer-events: none;
+}
+
+.arm-segment.forearm::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    width: 48px;
+    top: -3px;
+    bottom: -3px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #0a4b6b 0%, #03192b 50%, #073954 100%);
+    border: 1.5px solid #ffffff;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+    pointer-events: none;
+}
+
+/* Canal de circuito luminoso verde neón recorriendo cada segmento */
+.arm-segment.upper::after,
+.arm-segment.forearm::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 18px;
+    top: 50%;
+    height: 4px;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8 0%, #93ffa1 45%, #93ffa1 85%, transparent 100%);
+    box-shadow: 0 0 10px rgba(147, 255, 161, 0.75);
+    pointer-events: none;
+}
+
+/* Pinza más larga y expresiva */
+.arm-claw {
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    width: 40px;
+    height: 44px;
+    transform: translateY(-50%);
+    z-index: 4;
+}
+
+.arm-segment.forearm .arm-claw {
+    position: relative;
+    right: auto;
+    top: auto;
+    flex: 0 0 auto;
+    margin-left: -4px;
+    transform: none;
+}
+
+.claw-finger {
+    position: absolute;
+    left: 14px;
+    width: 24px;
+    height: 8px;
+    background: linear-gradient(90deg, #031829 0%, #073b56 75%, #93ffa1 100%);
+    border: 1.5px solid #ffff;
+    border-radius: 4px 10px 10px 4px;
+    transform-origin: 0% 50%;
+    box-shadow: 0 4px 10px rgba(1, 12, 24, 0.9);
+    transition: transform 0.25s ease;
+}
+
+/* Punta luminosa verde neón en cada dedo */
+.claw-finger::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 50%;
+    width: 9px;
+    height: 6px;
+    transform: translateY(-50%);
+    background: #93ffa1;
+    border-radius: 2px 8px 8px 2px;
+    box-shadow: 0 0 10px rgba(147, 255, 161, 0.85);
+}
+
+/* Dedo superior */
+.claw-finger.top {
+    top: 5px;
+    transform: rotate(-34deg);
+}
+
+/* Dedo central */
+.claw-finger.mid {
+    top: 50%;
+    width: 26px;
+    transform: translateY(-50%) rotate(4deg);
+}
+
+/* Dedo inferior (pulgar opuesto) */
+.claw-finger.bot {
+    bottom: 5px;
+    transform: rotate(38deg);
+}
+
+/* Efecto de agarre cuando el robot pasa al centro */
+body.pose-center .claw-finger.top {
+    transform: rotate(-16deg);
+}
+body.pose-center .claw-finger.bot {
+    transform: rotate(18deg);
+}
+
+.arm-claw::before,
+.arm-claw::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 19px;
+    height: 6px;
+    border: 2px solid #93ffa1;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 0 10px rgba(147, 255, 161, 0.45);
+    transform-origin: 0% 50%;
+    transition: transform 0.25s ease;
+}
+
+.arm-claw::before {
+    top: 1px;
+    transform: rotate(22deg);
+}
+
+.arm-claw::after {
+    bottom: 1px;
+    transform: rotate(-22deg);
+}
+
+/* ==========================================
+   ESTADOS DE INTERACCIÓN
+   ========================================== */
+
+/* Caja del centro (0): ambos brazos van hacia el centro frontal */
+body.pose-center .css-arm.arm-left {
+    --arm-x: -120px;
+    --arm-y: -85px;
+    --arm-rot: 105deg;
+    --elbow-rot: -18deg;
+    --chain-len: 300px;
+}
+
+body.pose-center .css-arm.arm-right {
+    --arm-x: 120px;
+    --arm-y: -85px;
+    --arm-rot: 75deg;
+    --elbow-rot: 18deg;
+    --chain-len: 300px;
+}
+
+/* Semicorner (1) */
+body.pose-semi-left .css-arm.arm-left {
+    --arm-x: -120px;
+    --arm-y: -100px;
+    --arm-rot: 125deg;
+    --elbow-rot: -20deg;
+    --chain-len: 385px;
+}
+
+body.pose-semi-right .css-arm.arm-right {
+    --arm-x: 120px;
+    --arm-y: -100px;
+    --arm-rot: 55deg;
+    --elbow-rot: 20deg;
+    --chain-len: 385px;
+}
+
+/* Corner (2) */
+body.pose-corner-left .css-arm.arm-left {
+    --arm-x: -120px;
+    --arm-y: -100px;
+    --arm-rot: 142deg;
+    --elbow-rot: -2deg;
+    --chain-len: 625px;
+}
+
+body.pose-corner-right .css-arm.arm-right {
+    --arm-x: 120px;
+    --arm-y: -100px;
+    --arm-rot: 25deg;
+    --elbow-rot: 15deg;
+    --chain-len: 625px;
+}
+
 
 
 /* Projects */
