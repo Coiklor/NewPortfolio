@@ -727,16 +727,16 @@ html {
 
 /* Bordes laterales de la cara de 200px centrada en el cubo de 400px */
 .css-arm.arm-left {
-    --arm-x: -120px;
+    --arm-x: -130px;
     --arm-y: -100px;
-    --arm-rot: 125deg;
+    --arm-rot: 105deg;
     --elbow-rot: -25deg;
 }
 
 .css-arm.arm-right {
-    --arm-x: 120px;
+    --arm-x: 138px;
     --arm-y: -100px;
-    --arm-rot: 55deg;
+    --arm-rot: 75deg;
     --elbow-rot: 25deg;
 }
 
@@ -823,8 +823,6 @@ html {
 .arm-segment.forearm {
     position: absolute;
     left: 100%;
-    display: flex;
-    align-items: center;
     top: 50%;
     width: 114px;
     height: 30px;
@@ -850,11 +848,14 @@ html {
 
 /* Cadena de eslabones en CSS puro */
 .arm-chain {
-    position: relative;
-    width: var(--chain-len);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: var(--chain-len, 0px);
     height: 18px;
-    flex: 0 0 var(--chain-len);
+    transform: translateY(-50%);
     opacity: 0;
+    pointer-events: none;
     margin-left: -2px;
     border-top: 2px solid #38bdf8;
     border-bottom: 2px solid #38bdf8;
@@ -874,9 +875,7 @@ html {
         0 6px 14px rgba(1, 12, 24, 0.9),
         0 0 10px rgba(56, 189, 248, 0.25),
         inset 0 1px 0 rgba(186, 230, 253, 0.35);
-    transition: width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-                flex-basis 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.2s ease;
+    transition: width 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
     z-index: 2;
 }
 
@@ -931,24 +930,21 @@ body[class*="pose-"] .arm-chain {
     pointer-events: none;
 }
 
-/* Pinza más larga y expresiva */
-.arm-claw {
+/* Pinza más larga y expresiva, siempre al final de la cadena / antebrazo */
+.arm-segment.forearm .arm-claw {
     position: absolute;
-    right: -34px;
+    left: calc(100% + var(--chain-len, 0px));
     top: 50%;
+    right: auto;
+    bottom: auto;
     width: 40px;
     height: 44px;
-    transform: translateY(-50%);
-    z-index: 4;
-}
-
-.arm-segment.forearm .arm-claw {
-    position: relative;
-    right: auto;
-    top: auto;
-    flex: 0 0 auto;
     margin-left: -4px;
-    transform: none;
+    opacity: 1;
+    transform: translateY(-50%);
+    transition: left 0.38s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 4;
 }
 
 .claw-finger {
@@ -1036,7 +1032,7 @@ body.pose-center .claw-finger.bot {
 
 /* Caja del centro (0): ambos brazos van hacia el centro frontal */
 body.pose-center .css-arm.arm-left {
-    --arm-x: -120px;
+    --arm-x: -130px;
     --arm-y: -85px;
     --arm-rot: 105deg;
     --elbow-rot: -18deg;
@@ -1044,7 +1040,7 @@ body.pose-center .css-arm.arm-left {
 }
 
 body.pose-center .css-arm.arm-right {
-    --arm-x: 120px;
+    --arm-x: 138px;
     --arm-y: -85px;
     --arm-rot: 75deg;
     --elbow-rot: 18deg;
@@ -1053,7 +1049,7 @@ body.pose-center .css-arm.arm-right {
 
 /* Semicorner (1) */
 body.pose-semi-left .css-arm.arm-left {
-    --arm-x: -120px;
+    --arm-x: -130px;
     --arm-y: -100px;
     --arm-rot: 125deg;
     --elbow-rot: -20deg;
@@ -1061,7 +1057,7 @@ body.pose-semi-left .css-arm.arm-left {
 }
 
 body.pose-semi-right .css-arm.arm-right {
-    --arm-x: 120px;
+    --arm-x: 138px;
     --arm-y: -100px;
     --arm-rot: 55deg;
     --elbow-rot: 20deg;
@@ -1070,7 +1066,7 @@ body.pose-semi-right .css-arm.arm-right {
 
 /* Corner (2) */
 body.pose-corner-left .css-arm.arm-left {
-    --arm-x: -120px;
+    --arm-x: -130px;
     --arm-y: -100px;
     --arm-rot: 142deg;
     --elbow-rot: -2deg;
@@ -1078,7 +1074,7 @@ body.pose-corner-left .css-arm.arm-left {
 }
 
 body.pose-corner-right .css-arm.arm-right {
-    --arm-x: 120px;
+    --arm-x: 138px;
     --arm-y: -100px;
     --arm-rot: 25deg;
     --elbow-rot: 15deg;
